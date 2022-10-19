@@ -1,0 +1,41 @@
+{
+  "title": "add a client",
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format":"email",
+          "minLength": 1,
+          "maxLength": 254
+        },
+        "providers": {
+          "type": "array",
+          "minLength": 0,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "phone"
+      ]
+    }
+  },
+  "required": [
+    "body"
+  ]
+}
