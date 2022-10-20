@@ -6,7 +6,7 @@
 module.exports = class Repository {
 
     constructor() {
-        if (this.constructor == Repository) {
+        if (this.constructor === Repository) {
             throw new Error("Abstract classes can't be instantiated.");
         }
     }

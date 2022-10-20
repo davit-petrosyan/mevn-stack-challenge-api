@@ -23,4 +23,4 @@ You will need install `Node.js`, `npm` and `MongoDB`  in your environement.
 
 ## Making requests
 ### ``By default, the API host is http://localhost:3001``
-### For the Swagger documentation, please go to [http://localhost:3001/api-docs](http://localhost:3001/api-docs) and explore the API
+### For the Swagger documentation, please go to [http://localhost:3001/api/v1/api-docs](http://localhost:3001/api/v1/api-docs) and explore the API

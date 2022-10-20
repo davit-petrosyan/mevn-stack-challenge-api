@@ -8,10 +8,6 @@ const customErrors = require("../utils/customErrors");
 
 module.exports = class ProviderRepository extends Repository{
 
-    constructor() {
-        super();
-    }
-
     async find(id) {
         const provider = await providerSchema
             .findById(id)
@@ -24,7 +20,7 @@ module.exports = class ProviderRepository extends Repository{
         const providers = await providerSchema
             .find()
             .lean();
-        if (!providers.length) throw customErrors.providerNotFound;
+        if (!providers.length) return [];
         return providers;
     }
 

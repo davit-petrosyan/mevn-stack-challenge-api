@@ -9,10 +9,6 @@ const clientSchema = require('../schemas/clientSchema');
 
 module.exports =  class ClientRepository extends Repository{
 
-    constructor() {
-        super();
-    }
-
     async find(id) {
         const client = await clientSchema
             .findById(id)
@@ -29,7 +25,7 @@ module.exports =  class ClientRepository extends Repository{
             .populate('providers')
             .lean();
 
-        if (!clients) throw customErrors.clientNotFound;
+        if (!clients.length) return [];
         return clients;
     }
 
@@ -61,13 +57,7 @@ module.exports =  class ClientRepository extends Repository{
     }
 
     async delete(id) {
-        try {
-            const client = await clientSchema.findByIdAndDelete(id);
-            if (!client) throw customErrors.clientNotFound;
-           return {success: true};
-        } catch (err) {
-            throw err;
-        }
+        return clientSchema.findByIdAndDelete(id);
     }
 }
 

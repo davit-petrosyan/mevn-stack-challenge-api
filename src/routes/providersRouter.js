@@ -4,7 +4,7 @@ const router = express.Router();
 const providerController = require('../controllers/providerController');
 
 /**
- * Аll routes start with '/client'
+ * Аll routes start with '/provider'
  **/
 router
     .route('/')

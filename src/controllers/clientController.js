@@ -19,7 +19,6 @@ class ClientController  {
     find = async (req, res, next) => {
         try {
             const client = await this.repository.find(req.params.id);
-            if (!client) throw customErrors.clientNotFound;
             res.json(client);
         } catch (err) {
             next(err);
@@ -29,7 +28,6 @@ class ClientController  {
     findAll = async (req, res, next) => {
         try {
             const clients = await this.repository.findAll();
-            if (!clients) throw customErrors.clientNotFound;
             res.json(clients);
         } catch (err) {
             next(err);
@@ -39,7 +37,6 @@ class ClientController  {
     update = async (req, res, next) => {
         try {
             const client = await this.repository.update(req.params.id,req.body);
-            if (!client) throw customErrors.clientNotFound;
             res.json(client);
         } catch (err) {
             next(err);
@@ -49,9 +46,9 @@ class ClientController  {
 
     delete = async (req, res, next) => {
         try {
-            const client = await this.repository.delete(req.params.id);
+            const client= await this.repository.delete(req.params.id);
             if (!client) throw customErrors.clientNotFound;
-            res.status(204);
+            res.status(204).json({success: true});
         } catch (err) {
             next(err);
         }

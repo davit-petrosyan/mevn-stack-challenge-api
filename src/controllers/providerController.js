@@ -19,7 +19,6 @@ class ProviderController  {
     find = async (req, res, next) => {
         try {
             const provider = await this.repository.find(req.params.id);
-            if (!provider) throw customErrors.providerNotFound;
             res.json(provider);
         } catch (err) {
             next(err);
@@ -38,7 +37,6 @@ class ProviderController  {
     update = async (req, res, next) => {
         try {
             const provider = await this.repository.update(req.params.id, req.body);
-            if (!provider) throw customErrors.providerNotFound;
             res.json(provider);
         } catch (err) {
             next(err);
@@ -47,9 +45,9 @@ class ProviderController  {
 
     delete = async (req, res, next) => {
         try {
-            const provider= await this.repository.delete(req.params.id);
+            const provider = await this.repository.delete(req.params.id);
             if (!provider) throw customErrors.providerNotFound;
-            res.status(204);
+            res.status(204).json({success: true});
         } catch (err) {
             next(err);
         }
