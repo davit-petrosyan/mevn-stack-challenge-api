@@ -12,10 +12,8 @@ You will need install `Node.js`, `npm` and `MongoDB`  in your environement.
     git clone https://github.com/davit-petrosyan/mevn-stack-challenge-api.git
     npm install
 
- set configs depending on your environment
-    ```
-    config.env
-    ```
+    Remove .example extension from configuration file located in ./env
+    and set configs depending on your environment .env.example -> .env
 
 ## Running the project
 

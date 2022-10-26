@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const terminate = require('./src/middlewares/terminate');
 
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './.env' });
 const port = process.env.PORT || 3000;
 const app = require('./src/app');
 
